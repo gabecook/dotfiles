@@ -1,0 +1,14 @@
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+    ~/.vimrc: vim/janus/vim/vimrc
+    ~/.gvimrc: vim/janus/vim/gvimrc
+    ~/.gvimrc.after: gvimrc.after
+    ~/.gvimrc.local: gvimrc.local
+
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]

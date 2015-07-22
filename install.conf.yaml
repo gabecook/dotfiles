@@ -11,4 +11,7 @@
 
 
 - shell:
+  # Update DotBot and other git submodules.
   - [git submodule update --init --recursive, Installing submodules]
+  # Make MacVim the default handler for text files.
+  - ["defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'", "Making MacVim the default text editor"]

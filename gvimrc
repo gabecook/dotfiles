@@ -1,5 +1,6 @@
 
 " Configure the UI.
+"color jellybeans
 color molokai
 set guifont=Monaco:h12
 set guioptions-=T " Removes top toolbar

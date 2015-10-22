@@ -9,10 +9,14 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-Bundle 'vim-ruby/vim-ruby'
+Plugin 'vim-ruby/vim-ruby'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tomasr/molokai'
-
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rake'
+Plugin 'nanotech/jellybeans.vim' "Nice color scheme.
+Plugin 'jgdavey/vim-turbux' "Turbo Ruby tests with tmux.
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

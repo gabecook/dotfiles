@@ -1,17 +1,43 @@
 - clean: ['~']
 
 - link:
-    ~/.dotfiles: ''
+  #~/.dotfiles: ''
     ~/.vim: vim/
     ~/.vimrc: vimrc
-    ~/.vimrc: vim/janus/vim/vimrc
-    ~/.gvimrc: vim/janus/vim/gvimrc
-    ~/.gvimrc.after: gvimrc.after
-    ~/.gvimrc.local: gvimrc.local
+    ~/.gvimrc: gvimrc
 
 
 - shell:
-  # Update DotBot and other git submodules.
+  # Update DotBot and other git submodules 
   - [git submodule update --init --recursive, Installing submodules]
   # Make MacVim the default handler for text files.
   - ["defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'", "Making MacVim the default text editor"]
+
+  # Install rvm and ruby
+    # - ['which rvm || \curl -sSL https://get.rvm.io | bash -s stable', Install RVM stable if it is not already installed]
+    # - [rvm get stable, Update RVM]
+  - [rvm install 2.2.1, Install Ruby 2.2.1]
+
+  # update homebrew
+  - ['which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"',
+    Install homebrew if its not already installled]
+  - [brew update, Update homebrew]
+
+  # Install postgres
+  - 
+    description: Install postgress with Homebrew
+    command: brew install postgres
+    stdout: true
+    stderr: true
+  - [mkdir -p ~/Library/LaunchAgents, Make the LaunchAgents directory]
+  - [ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents, Create a symbolic link to the postgres plist file]
+  - [launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist, Launch postgress]
+
+
+
+
+    #-
+    #description: Update RVM
+    #command: 'rvm get stable'
+    #stdout: true
+    #stderr: true

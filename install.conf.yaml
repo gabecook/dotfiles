@@ -33,6 +33,9 @@
   - [ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents, Create a symbolic link to the postgres plist file]
   - [launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist, Launch postgress]
 
+  # Install/update VIM plugins with Vundler.
+  - ['vim +PluginInstall +qall', Update VIM plugins with Vundler]
+
 
 
 

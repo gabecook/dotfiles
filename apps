@@ -1,0 +1,78 @@
+#!/usr/bin/env bash
+#
+# Install frequently used command line applications
+
+# Exit when a command fails
+set -o errexit
+# Exit when a command in a pipe fails
+set -o pipefail
+# Exit when undeclared variable used
+set -o nounset
+# Enable xtrace for debugging
+# set -o xtrace
+
+BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "${BASEDIR}"
+
+echo -----------------------------------------------
+echo Install homebrew if it is not already installed
+echo -----------------------------------------------
+which brew || ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+echo ---------------
+echo Update homebrew
+echo ---------------
+brew update
+
+echo -----------
+echo Install ACK
+echo -----------
+brew install ack
+
+echo ----------------
+echo Install postgres
+echo ----------------
+brew install postgres 
+# Make the LaunchAgents directory
+mkdir -p ~/Library/LaunchAgents
+# Create a symbolic link to the postgres plist file
+ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
+# Launch postgres
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+
+
+echo --------------------
+echo Install rvm and ruby
+echo --------------------
+# Install RVM stable if it is not already installed
+# which rvm || \curl -sSL https://get.rvm.io | bash -s stable'
+# Update rvm
+rvm get stable
+# Install Ruby 2.2.1
+rvm install 2.2.1
+
+echo ------------
+echo Install tmux
+echo ------------
+brew install tmux
+tmux -V
+
+echo ------------------
+echo Install tmuxinator
+echo ------------------
+gem install tmuxinator
+tmuxinator doctor
+
+echo --------------
+echo Install redis
+echo --------------
+brew install redis
+
+# ----------------------
+# Other things to install
+# ----------------------
+# Foreman
+# https://github.com/ddollar/foreman
+# Navicat
+# Rubymine
+# 

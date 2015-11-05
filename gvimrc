@@ -1,7 +1,7 @@
 
 " Configure the UI.
-"color jellybeans
-color molokai
+color jellybeans
+"color molokai
 set guifont=Monaco:h12
 set guioptions-=T " Removes top toolbar
 set guioptions-=r " Removes right hand scroll bar

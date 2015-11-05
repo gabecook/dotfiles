@@ -17,6 +17,8 @@ Plugin 'tpope/vim-bundler'
 Plugin 'tpope/vim-rake'
 Plugin 'nanotech/jellybeans.vim' "Nice color scheme.
 Plugin 'jgdavey/vim-turbux' "Turbo Ruby tests with tmux.
+Plugin 'tpope/vim-surround' "Parenthese brackets quotes and more.
+Plugin 'tpope/vim-repeat' "Get '.' to work with surround
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -33,6 +35,10 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
+""
+"" Install repeat plugin for surround
+""
+silent! call repeat#set("\<Plug>vim-surround", v:count)
 
 " All operations such as yy, D, and P work wieh the clipboard. No need to
 " prefix with"* or +
@@ -58,6 +64,16 @@ endif
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
+
+""
+"" Soft line wrapping
+""
+
+set wrap
+set linebreak
+set nolist  " list disables linebreak
+set textwidth=0 " Don't put the hard line breaks in.
+set wrapmargin=0 " Don't put the hard line breaks in.
 
 ""
 "" Whitespace

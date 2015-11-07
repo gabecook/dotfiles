@@ -68,6 +68,11 @@ echo Install redis
 echo --------------
 brew install redis
 
+echo -------------------
+echo Install ssh-copy-id
+echo -------------------
+brew install ssh-copy-id
+
 # ----------------------
 # Other things to install
 # ----------------------

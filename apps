@@ -73,6 +73,12 @@ echo Install ssh-copy-id
 echo -------------------
 brew install ssh-copy-id
 
+echo -------------------------
+echo Install terminal-notifier
+echo -------------------------
+brew install terminal-notifier
+brew linkapps terminal-notifier
+
 # ----------------------
 # Other things to install
 # ----------------------

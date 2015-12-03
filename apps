@@ -48,8 +48,8 @@ echo --------------------
 # which rvm || \curl -sSL https://get.rvm.io | bash -s stable'
 # Update rvm
 rvm get stable
-# Install Ruby 2.2.1
-rvm install 2.2.1
+# Install Ruby 2.2.3
+rvm install 2.2.3
 
 echo ------------
 echo Install tmux
@@ -78,6 +78,16 @@ echo Install terminal-notifier
 echo -------------------------
 brew install terminal-notifier
 brew linkapps terminal-notifier
+
+echo --------------
+echo Install pandoc
+echo --------------
+brew install pandoc
+
+echo --------------------
+echo Install image magick 
+echo --------------------
+brew install imagemagick
 
 # ----------------------
 # Other things to install

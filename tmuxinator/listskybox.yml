@@ -1,7 +1,7 @@
 # ~/.tmuxinator/listskybox.yml
 
 name: listskybox
-root: ~/Documents/github/oet/listskybox
+root: ~/Documents/code/aramis/listskybox
 
 # Optional tmux socket
 # socket_name: foo

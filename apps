@@ -27,7 +27,7 @@ brew update
 echo -----------
 echo Install ACK
 echo -----------
-brew install ack
+which ack || brew install ack
 
 echo ----------------
 echo Install postgres
@@ -66,28 +66,41 @@ tmuxinator doctor
 echo --------------
 echo Install redis
 echo --------------
-brew install redis
+which redis || brew install redis
 
 echo -------------------
 echo Install ssh-copy-id
 echo -------------------
-brew install ssh-copy-id
+which ssh-copy-id || brew install ssh-copy-id
 
 echo -------------------------
 echo Install terminal-notifier
 echo -------------------------
-brew install terminal-notifier
-brew linkapps terminal-notifier
+which terminal-notifier || brew install terminal-notifier
+which terminal-notifier || brew linkapps terminal-notifier
 
 echo --------------
 echo Install pandoc
 echo --------------
-brew install pandoc
+which pandoc || brew install pandoc
 
 echo --------------------
 echo Install image magick 
 echo --------------------
-brew install imagemagick
+which mogrify || brew install imagemagick
+
+echo -----------------
+echo ASDF dependancies
+echo -----------------
+brew install automake autoconf openssl libyaml readline libxslt libtool unixodbc
+which ncurses || brew install homebrew/dupes/ncurses
+
+echo -------------
+echo Install CTAGS
+echo -------------
+# The version of ctags that comes with the mac is not Exuberant Ctags.
+# That version also doesn't properly respond to the --version flag.
+ctags --version || brew install ctags
 
 # ----------------------
 # Other things to install

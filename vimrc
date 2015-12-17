@@ -19,6 +19,11 @@ Plugin 'nanotech/jellybeans.vim' "Nice color scheme.
 Plugin 'jgdavey/vim-turbux' "Turbo Ruby tests with tmux.
 Plugin 'tpope/vim-surround' "Parenthese brackets quotes and more.
 Plugin 'tpope/vim-repeat' "Get '.' to work with surround
+Plugin 'elixir-lang/vim-elixir' "Elixir support for vim. This plugin also adds support for Elixir's templating language, EEx.
+Plugin 'mattreduce/vim-mix' "Plugin for using Elixir's build tool, mix.
+Plugin 'ctrlpvim/ctrlp.vim' "Full path fuzzy file, buffer, mru, tag, ... finder for Vim.
+Plugin 'szw/vim-tags' "The Ctags generator for Vim
+Plugin 'majutsushi/tagbar' "Brows current ctags in a file
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -148,6 +153,12 @@ nmap <silent> <leader>fc <ESC>/\v^[<=>]{7}( .*\|$)<CR>
 " Adjust viewports to the same size
 map <Leader>= <C-w>=
 
+" User CtrlP to search tags.
+nnoremap <leader>. :CtrlPTag<cr>
+
+" Toggle TagBar
+nnoremap <silent> <leader>b :TagbarToggle<CR>
+
 ""
 "" Wild settings
 ""
@@ -193,3 +204,22 @@ if has("statusline") && !&cp
   set statusline+=[%b][0x%B]
 endif
 
+"
+" Elixir support for Tagbar
+"
+let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records'
+    \ ]
+\ }
